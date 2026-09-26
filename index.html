@@ -34,6 +34,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      box-shadow: 0 4px 20px rgba(0,0,0,.15);
     }
 
     .logo {
@@ -57,6 +58,7 @@
       color: white;
       text-decoration: none;
       font-size: 14px;
+      transition: .3s;
     }
 
     nav a:hover {
@@ -121,6 +123,7 @@
       text-decoration: none;
       font-weight: bold;
       border-radius: 2px;
+      transition: .3s;
     }
 
     .gold {
@@ -128,9 +131,19 @@
       color: #101713;
     }
 
+    .gold:hover {
+      background: #dfc37c;
+      transform: translateY(-2px);
+    }
+
     .outline {
       border: 1px solid white;
       color: white;
+    }
+
+    .outline:hover {
+      background: white;
+      color: #101713;
     }
 
     /* STATS */
@@ -206,6 +219,11 @@
       background: #101713;
       padding: 35px;
       min-height: 230px;
+      transition: .3s;
+    }
+
+    .service:hover {
+      background: #17221b;
     }
 
     .service-number {
@@ -245,6 +263,7 @@
       background-size: cover;
       background-position: center;
       overflow: hidden;
+      transition: .3s;
     }
 
     .project::before {
@@ -252,6 +271,10 @@
       position: absolute;
       inset: 0;
       background: linear-gradient(transparent, rgba(0,0,0,.85));
+    }
+
+    .project:hover {
+      transform: translateY(-4px);
     }
 
     .project-content {
@@ -281,36 +304,89 @@
         url("https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=1000&q=85");
     }
 
-    /* SAFETY */
+    /* SAFETY & QUALITY */
     .safety {
       background: #e5e2d8;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .safety::before {
+      content: "A";
+      position: absolute;
+      right: 4%;
+      top: 20px;
+      font-size: 260px;
+      font-weight: bold;
+      color: rgba(16,23,19,.035);
+      line-height: 1;
     }
 
     .safety-content {
-      max-width: 900px;
+      max-width: 1400px;
       margin: auto;
-      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .safety-intro {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 70px;
+      align-items: end;
+    }
+
+    .safety-intro > p {
+      color: #657067;
+      max-width: 520px;
+      font-size: 16px;
     }
 
     .safety-list {
-      margin-top: 40px;
+      margin-top: 50px;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 2px;
+      background: #c7c3b7;
     }
 
     .safety-card {
-      background: white;
-      padding: 30px;
-      text-align: left;
+      background: #fff;
+      padding: 35px;
+      min-height: 250px;
+      position: relative;
+      transition: .3s;
+    }
+
+    .safety-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,.08);
+    }
+
+    .safety-number {
+      color: #b18f48;
+      font-weight: bold;
+      font-size: 13px;
+      letter-spacing: 2px;
     }
 
     .safety-card h3 {
-      margin-bottom: 10px;
+      margin: 35px 0 12px;
+      font-size: 23px;
     }
 
     .safety-card p {
       color: #657067;
+      font-size: 15px;
+    }
+
+    .safety-card span {
+      display: block;
+      margin-top: 25px;
+      color: #245b38;
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 1.5px;
     }
 
     /* PROCESS */
@@ -329,6 +405,11 @@
     .step {
       border-top: 3px solid #c9a95f;
       padding-top: 20px;
+      transition: .3s;
+    }
+
+    .step:hover {
+      transform: translateY(-4px);
     }
 
     .step-number {
@@ -378,6 +459,11 @@
       color: #245b38;
       font-weight: bold;
       text-decoration: none;
+      transition: .3s;
+    }
+
+    .contact-info a:hover {
+      color: #b18f48;
     }
 
     form {
@@ -405,6 +491,12 @@
       margin-top: 7px;
       border: 1px solid #d5d9d3;
       font: inherit;
+      outline: none;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: #c9a95f;
     }
 
     textarea {
@@ -468,7 +560,8 @@
       }
 
       .about,
-      .contact {
+      .contact,
+      .safety-intro {
         grid-template-columns: 1fr;
       }
 
@@ -538,6 +631,10 @@
       .contact {
         gap: 40px;
       }
+
+      .safety-card {
+        padding: 28px;
+      }
     }
   </style>
 </head>
@@ -564,6 +661,7 @@
 </header>
 
 
+<!-- HERO -->
 <section class="hero" id="home">
 
   <div class="hero-content">
@@ -599,6 +697,7 @@
 </section>
 
 
+<!-- STATS -->
 <div class="stats">
 
   <div>
@@ -624,6 +723,7 @@
 </div>
 
 
+<!-- ABOUT -->
 <section id="about">
 
   <div class="about">
@@ -663,6 +763,7 @@
 </section>
 
 
+<!-- SERVICES -->
 <section class="dark" id="services">
 
   <div class="services">
@@ -738,6 +839,7 @@
 </section>
 
 
+<!-- PROJECTS -->
 <section id="projects">
 
   <div class="projects">
@@ -815,54 +917,101 @@
 </section>
 
 
+<!-- SAFETY & QUALITY -->
 <section class="safety" id="safety">
 
   <div class="safety-content">
 
-    <div class="section-title">
-      SAFETY & QUALITY
+    <div class="safety-intro">
+
+      <div>
+
+        <div class="section-title">
+          SAFETY & QUALITY
+        </div>
+
+        <h2>
+          Built with responsibility.
+          Delivered with confidence.
+        </h2>
+
+      </div>
+
+      <p>
+        Every project is guided by disciplined planning,
+        responsible site practices and attention to quality
+        from the first stage through final delivery.
+      </p>
+
     </div>
 
-    <h2>
-      Every project starts with doing the work responsibly.
-    </h2>
-
-    <p>
-      Our project philosophy places safe working practices,
-      quality control and disciplined site coordination at the
-      centre of delivery.
-    </p>
 
     <div class="safety-list">
 
       <div class="safety-card">
 
-        <h3>Safety First</h3>
+        <div class="safety-number">
+          01
+        </div>
+
+        <h3>
+          Safety First
+        </h3>
 
         <p>
-          Clear site procedures and responsible work practices
-          throughout project delivery.
+          Clear site procedures and responsible working
+          practices help protect people, equipment and
+          projects throughout delivery.
         </p>
+
+        <span>
+          RESPONSIBLE DELIVERY
+        </span>
 
       </div>
 
+
       <div class="safety-card">
 
-        <h3>Quality Control</h3>
+        <div class="safety-number">
+          02
+        </div>
+
+        <h3>
+          Quality Control
+        </h3>
 
         <p>
-          Attention to specifications, materials and workmanship.
+          Attention to specifications, materials,
+          workmanship and project standards helps maintain
+          consistent delivery.
         </p>
+
+        <span>
+          QUALITY ASSURANCE
+        </span>
 
       </div>
 
+
       <div class="safety-card">
 
-        <h3>Clear Reporting</h3>
+        <div class="safety-number">
+          03
+        </div>
+
+        <h3>
+          Clear Reporting
+        </h3>
 
         <p>
-          Clients stay informed throughout the project lifecycle.
+          Clients remain informed through clear communication,
+          progress updates and coordinated project management.
         </p>
+
+        <span>
+          CLIENT FOCUS
+        </span>
 
       </div>
 
@@ -873,6 +1022,7 @@
 </section>
 
 
+<!-- PROCESS -->
 <section>
 
   <div class="process">
@@ -942,6 +1092,7 @@
 </section>
 
 
+<!-- CTA -->
 <section class="cta">
 
   <div>
@@ -968,6 +1119,7 @@
 </section>
 
 
+<!-- CONTACT -->
 <section id="contact">
 
   <div class="contact">
@@ -1063,6 +1215,7 @@
 </section>
 
 
+<!-- FOOTER -->
 <footer>
 
   <strong>
